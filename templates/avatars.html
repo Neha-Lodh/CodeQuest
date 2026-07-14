@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose Avatar</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/challenges">Challenges</a>
+    <a href="/leaderboard">Leaderboard</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<div class="container">
+
+<h1>👤 Choose Your Avatar</h1>
+
+<div class="avatar-grid">
+
+<div class="card">
+<img src="{{ url_for('static', filename='avatars/avatar1.png') }}" width="120">
+<h3>Ninja</h3>
+<button>Select</button>
+</div>
+
+<div class="card">
+<img src="{{ url_for('static', filename='avatars/avatar2.png') }}" width="120">
+<h3>Robot</h3>
+<button>Select</button>
+</div>
+
+<div class="card">
+<img src="{{ url_for('static', filename='avatars/avatar3.png') }}" width="120">
+<h3>Wizard</h3>
+<button>Select</button>
+</div>
+
+<div class="card">
+<img src="{{ url_for('static', filename='avatars/avatar4.png') }}" width="120">
+<h3>Samurai</h3>
+<button>Select</button>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

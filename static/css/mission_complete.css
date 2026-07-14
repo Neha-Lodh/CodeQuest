@@ -1,0 +1,89 @@
+body{
+
+    margin:0;
+
+    background:#081120;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    font-family:Segoe UI,sans-serif;
+
+}
+
+.card{
+
+    background:#16213E;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    width:500px;
+
+    text-align:center;
+
+    box-shadow:0 0 40px rgba(0,0,0,.4);
+
+}
+
+.card h1{
+
+    color:#22C55E;
+
+    font-size:42px;
+
+}
+
+.reward{
+
+    font-size:28px;
+
+    margin:25px;
+
+}
+
+.buttons{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+    background:#1D4ED8;
+
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>{{ challenge.title }}</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/arena.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        ⚔ Code Quest
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">🏠 Dashboard</a>
+        <a href="/worlds">🗺 Adventure Map</a>
+        <a href="/leaderboard">🏆 Leaderboard</a>
+        <a href="/shop">🛒 Shop</a>
+        <a href="/logout">🚪 Logout</a>
+
+    </div>
+
+</nav>
+
+
+<div class="arena">
+
+    <!-- LEFT PANEL -->
+
+    <div class="mission-panel">
+
+        <span class="difficulty-badge">
+            {{ challenge.difficulty }}
+        </span>
+
+        <h1>
+            ⚔ {{ challenge.title }}
+        </h1>
+
+        <p>
+
+            {{ challenge.description }}
+
+        </p>
+
+        <div class="reward-box">
+
+            ⭐ Reward
+
+            <div class="reward-box">
+
+<h2>
+
+⭐ {{ challenge.xp_reward }} XP
+
+</h2>
+
+<p>
+
+🪙
+{% if challenge.is_boss %}
+150 Coins
+{% else %}
+25 Coins
+{% endif %}
+
+</p>
+
+</div>
+
+        </div>
+
+        <button
+        class="hint-btn"
+        onclick="toggleHint()">
+
+        💡 Show Hint
+
+        </button>
+
+        <div
+        id="hintBox"
+        class="hint-box">
+
+            {{ challenge.hint }}
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT PANEL -->
+
+    <div class="editor-panel">
+
+        <h2>
+
+            💻 Python Editor
+
+        </h2>
+
+        <div id="editor"></div>
+
+        <div class="button-group">
+
+            <button
+            class="run-btn"
+            onclick="runCode()">
+
+            ▶ Run Code
+
+            </button>
+
+            <form
+            method="POST"
+            action="/submit/{{ challenge.id }}">
+
+                <input
+                type="hidden"
+                name="answer"
+                id="codeInput">
+
+                <button
+                class="submit-btn"
+                type="submit"
+                onclick="saveCode()">
+
+                ✅ Submit
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="output-box">
+
+            <h3>
+
+                📤 Output
+
+            </h3>
+
+            <pre id="output">
+
+Run your code...
+
+            </pre>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+
+<script>
+
+require.config({
+
+paths:{
+
+vs:'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs'
+
+}
+
+});
+
+let editor;
+
+require(
+
+['vs/editor/editor.main'],
+
+function(){
+
+editor=monaco.editor.create(
+
+document.getElementById('editor'),
+
+{
+
+value:"",
+
+language:'python',
+
+theme:'vs-dark',
+
+automaticLayout:true
+
+}
+
+);
+
+}
+
+);
+
+function saveCode(){
+
+document.getElementById("codeInput").value=editor.getValue();
+
+}
+
+function runCode(){
+
+let code=editor.getValue();
+
+fetch('/run',{
+
+method:'POST',
+
+headers:{
+
+'Content-Type':'application/x-www-form-urlencoded'
+
+},
+
+body:'code='+encodeURIComponent(code)
+
+})
+
+.then(response=>response.text())
+
+.then(data=>{
+
+document.getElementById("output").innerText=data;
+
+});
+
+}
+
+function toggleHint(){
+
+let box=document.getElementById("hintBox");
+
+if(box.style.display=="block")
+
+box.style.display="none";
+
+else
+
+box.style.display="block";
+
+}
+
+</script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

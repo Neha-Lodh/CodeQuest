@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Daily Quests</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📅 Daily Quests</h1>
+
+<h2>🔥 Current Streak: {{ streak }} Days</h2>
+
+{% for quest in quests %}
+
+<div class="card">
+
+<h3>{{ quest.title }}</h3>
+
+<p>⭐ {{ quest.reward_xp }} XP</p>
+
+<p>🪙 {{ quest.reward_coins }} Coins</p>
+
+{% if quest.completed %}
+
+    {% if quest.claimed %}
+
+        <button disabled>
+            ✅ Claimed
+        </button>
+
+    {% else %}
+
+        <a href="/claim/{{ quest.id }}">
+            <button>
+                🎁 Claim Reward
+            </button>
+        </a>
+
+    {% endif %}
+
+{% else %}
+
+<button disabled>
+❌ Not Completed
+</button>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

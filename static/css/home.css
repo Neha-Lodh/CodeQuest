@@ -1,0 +1,99 @@
+body{
+
+    background:url("../images/worlds/kingdom.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    min-height:100vh;
+
+}
+
+.overlay{
+
+    background:rgba(0,0,0,.55);
+
+    min-height:100vh;
+
+}
+
+nav{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:25px 60px;
+
+}
+
+nav a{
+
+    margin-left:25px;
+
+    font-size:18px;
+
+}
+
+.hero{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    height:80vh;
+
+}
+
+.hero h1{
+
+    font-size:65px;
+
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    width:60%;
+
+    font-size:22px;
+
+    color:#ddd;
+
+    line-height:1.8;
+
+}
+
+.hero button{
+
+    margin-top:40px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    padding:18px 45px;
+
+    border-radius:40px;
+
+    font-size:20px;
+
+}
+
+.hero button:hover{
+
+    background:#2563eb;
+
+    transform:scale(1.08);
+
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adventure Worlds</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/worlds.css') }}">
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <h1 class="title">
+        🌍 Adventure Worlds
+    </h1>
+
+    <p class="subtitle">
+        Choose your next coding adventure.
+    </p>
+
+    <div class="world-grid">
+
+        {% for world in worlds %}
+
+        <div class="world-card">
+
+            <div class="image-box">
+
+                <img
+                src="{{ url_for('static', filename='images/worlds/' + world.image) }}"
+                alt="{{ world.name }}">
+
+                {% if world.id > unlocked %}
+
+                <div class="locked-overlay">
+                    🔒 Locked
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            <div class="card-body">
+
+                <h2>{{ world.name }}</h2>
+
+                <p class="boss">
+                    👑 {{ world.boss }}
+                </p>
+
+                <p class="difficulty">
+                    ⚔ {{ world.difficulty }}
+                </p>
+
+                <div class="progress-bar">
+
+                    <div
+                    class="progress-fill"
+                    style="width:{{ world.progress }}%">
+                    </div>
+
+                </div>
+
+                <p class="progress-text">
+
+                    {{ world.progress }}% Completed
+
+                </p>
+
+                {% if world.id <= unlocked %}
+
+                <a href="/world/{{ world.id }}">
+
+                    <button>
+
+                        ▶ Continue Adventure
+
+                    </button>
+
+                </a>
+
+                {% else %}
+
+                <button disabled>
+
+                    🔒 Locked
+
+                </button>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

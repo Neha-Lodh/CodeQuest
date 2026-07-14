@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Player Profile</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/profile.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="profile-card">
+
+        <img
+        src="{{ url_for('static', filename='images/avatars/' + user.image) }}"
+        class="avatar">
+
+        <h1>{{ user.username }}</h1>
+
+        <h2>⭐ Level {{ user.level }}</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h3>⭐ XP</h3>
+                <p>{{ user.xp }}</p>
+            </div>
+
+            <div class="stat">
+                <h3>🪙 Coins</h3>
+                <p>{{ user.coins }}</p>
+            </div>
+
+            <div class="stat">
+                <h3>🔥 Streak</h3>
+                <p>{{ user.streak }} Days</p>
+            </div>
+
+            <div class="stat">
+                <h3>🌍 World</h3>
+                <p>{{ user.unlocked_world }}/5</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="achievement-card">
+
+        <h2>🏆 Recent Achievements</h2>
+
+        {% if achievements %}
+
+            {% for achievement in achievements %}
+
+                <div class="achievement">
+
+                    <span class="icon">
+                        {{ achievement.icon }}
+                    </span>
+
+                    <span>
+                        {{ achievement.title }}
+                    </span>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No achievements yet.</p>
+
+        {% endif %}
+
+    </div>
+
+    <div class="buttons">
+
+        <a href="/shop" class="btn">
+            🎒 Avatar Shop
+        </a>
+
+        <a href="/worlds" class="btn">
+            🌍 Adventure Map
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

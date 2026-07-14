@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ world_name }}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/challenges.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="world-header">
+
+        <h1>{{ world_name }}</h1>
+
+        <p>
+            {{ completed }} / {{ total }} Challenges Completed
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                style="width: {{ progress }}%;">
+            </div>
+
+        </div>
+
+        <p>{{ progress }}% Complete</p>
+
+    </div>
+
+    <div class="challenge-grid">
+
+        {% for challenge in challenges %}
+
+        <div class="challenge-card">
+
+            <h2>{{ challenge.title }}</h2>
+
+            <p>{{ challenge.description }}</p>
+
+            <div class="reward">
+
+                ⭐ {{ challenge.xp_reward }} XP
+
+            </div>
+
+            {% if challenge.completed %}
+
+                <span class="completed">
+                    ✅ Completed
+                </span>
+
+            {% else %}
+
+                <a href="/challenge/{{ challenge.id }}">
+
+                    <button>
+                        Start Challenge
+                    </button>
+
+                </a>
+
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

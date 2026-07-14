@@ -1,0 +1,153 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:Segoe UI,sans-serif;
+
+    background:url("../images/worlds/forest.png");
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+}
+
+.overlay{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(10,20,40,.55);
+
+}
+
+.login-box{
+
+    position:relative;
+
+    width:420px;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:0 0 35px rgba(0,0,0,.5);
+
+    z-index:10;
+
+}
+
+.login-box h1{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:white;
+
+}
+
+.input-group{
+
+    margin-bottom:20px;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:10px;
+
+    background:#ffffff15;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+.input-group input::placeholder{
+
+    color:#ddd;
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+.bottom{
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+.bottom a{
+
+    color:#60a5fa;
+
+}
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+.login-box{
+
+    animation:float 4s ease-in-out infinite;
+
+}

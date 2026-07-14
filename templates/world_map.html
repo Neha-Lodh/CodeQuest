@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Adventure Map</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/map.css') }}">
+
+</head>
+
+<body>
+<div class="stars"></div>
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<div class="player-marker">
+    ⚔️
+</div>
+
+<h1 class="title">
+🗺 Adventure Map
+</h1>
+
+<div class="map">
+
+{% for world in worlds %}
+
+<div class="node node{{ world.id }}">
+
+{% if world.id <= unlocked %}
+
+<a href="/world/{{ world.id }}">
+
+<img
+src="{{ url_for('static', filename='images/worlds/' + world.image) }}"
+class="world-icon">
+
+</a>
+
+{% else %}
+
+<img
+src="{{ url_for('static', filename='images/worlds/' + world.image) }}"
+class="world-icon locked">
+
+{% endif %}
+
+<h3>{{ world.name }}</h3>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

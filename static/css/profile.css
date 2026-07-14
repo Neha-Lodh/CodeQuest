@@ -1,0 +1,81 @@
+body{
+
+    background:#081120;
+    color:white;
+    font-family:Segoe UI;
+
+}
+
+.profile-card{
+
+    background:#16213e;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.avatar{
+
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:5px solid #3b82f6;
+    object-fit:cover;
+
+}
+
+.stats{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:30px;
+
+}
+
+.stat{
+
+    background:#1e293b;
+    border-radius:15px;
+    padding:20px;
+
+}
+
+.achievement-card{
+
+    margin-top:40px;
+    background:#16213e;
+    border-radius:20px;
+    padding:30px;
+
+}
+
+.achievement{
+
+    background:#1e293b;
+    padding:15px;
+    border-radius:12px;
+    margin:12px 0;
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.icon{
+
+    font-size:30px;
+
+}
+
+.buttons{
+
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+}

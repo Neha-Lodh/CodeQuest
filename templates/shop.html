@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Avatar Shop</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/base.css') }}">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/shop.css') }}">
+
+</head>
+
+<body>
+
+<div class="shop-container">
+
+<h1>
+🛒 Avatar Shop
+</h1>
+
+<div class="coin-box">
+
+🪙 {{ coins }} Coins
+
+</div>
+
+<div class="avatar-grid">
+
+{% for avatar in avatars %}
+
+<div class="avatar-card">
+
+<img
+src="{{ url_for('static',
+filename='images/avatars/' + avatar.image) }}">
+
+<h2>
+
+{{ avatar.name }}
+
+</h2>
+
+<p class="price">
+
+🪙 {{ avatar.price }}
+
+</p>
+
+{% if avatar.id == equipped %}
+
+<button
+class="equipped">
+
+✅ Equipped
+
+</button>
+
+{% elif avatar.id in owned %}
+
+<a href="/equip/{{ avatar.id }}">
+
+<button
+class="equip">
+
+Equip
+
+</button>
+
+</a>
+
+{% else %}
+
+<a href="/buy/{{ avatar.id }}">
+
+<button
+class="buy">
+
+Buy
+
+</button>
+
+</a>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>

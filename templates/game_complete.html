@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>🏆 Game Completed</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/game_complete.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="trophy">
+        🏆
+    </div>
+
+    <h1>Congratulations!</h1>
+
+    <h2>You have completed Code Quest!</h2>
+
+    <p class="subtitle">
+        You conquered every world and became the
+        <b>Python Master 👑</b>
+    </p>
+
+    <div class="stats">
+
+        <div class="card">
+            ⭐
+            <h3>{{ level }}</h3>
+            <p>Level</p>
+        </div>
+
+        <div class="card">
+            💎
+            <h3>{{ xp }}</h3>
+            <p>Total XP</p>
+        </div>
+
+        <div class="card">
+            🪙
+            <h3>{{ coins }}</h3>
+            <p>Coins</p>
+        </div>
+
+        <div class="card">
+            🎯
+            <h3>{{ completed }}</h3>
+            <p>Challenges</p>
+        </div>
+
+        <div class="card">
+            🏅
+            <h3>{{ achievements }}</h3>
+            <p>Achievements</p>
+        </div>
+
+    </div>
+
+    <a href="/dashboard">
+        <button class="btn">
+            🏠 Return to Dashboard
+        </button>
+    </a>
+
+</div>
+
+<script>
+
+window.onload = function(){
+
+    var duration = 6000;
+    var end = Date.now() + duration;
+
+    (function frame(){
+
+        confetti({
+            particleCount:5,
+            angle:60,
+            spread:70,
+            origin:{x:0}
+        });
+
+        confetti({
+            particleCount:5,
+            angle:120,
+            spread:70,
+            origin:{x:1}
+        });
+
+        if(Date.now() < end){
+            requestAnimationFrame(frame);
+        }
+
+    }());
+
+}
+
+</script>
+
+</body>
+</html>

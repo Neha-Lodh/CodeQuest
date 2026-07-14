@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Leaderboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/leaderboard.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏆 Leaderboard</h1>
+
+    {% for player in players %}
+
+    <div class="player-card
+        {% if loop.index == 1 %}gold{% endif %}
+        {% if loop.index == 2 %}silver{% endif %}
+        {% if loop.index == 3 %}bronze{% endif %}
+    ">
+
+        <div class="rank">
+
+            {% if loop.index == 1 %}
+                🥇
+            {% elif loop.index == 2 %}
+                🥈
+            {% elif loop.index == 3 %}
+                🥉
+            {% else %}
+                {{ loop.index }}
+            {% endif %}
+
+        </div>
+
+        <div class="avatar-box">
+
+    <img
+    src="{{ url_for('static', filename='images/avatars/' + (player.image or 'knight.png')) }}"
+    class="avatar">
+
+    {% if loop.index == 1 %}
+
+    <img src="{{ url_for('static', filename='images/ranks/gold.png') }}" class="rank-image">
+
+    {% elif loop.index == 2 %}
+
+    <img src="{{ url_for('static', filename='images/ranks/silver.png') }}" class="rank-image">
+
+    {% elif loop.index == 3 %}
+
+    <img src="{{ url_for('static', filename='images/ranks/bronze.png') }}" class="rank-image">
+
+    {% elif loop.index <= 10 %}
+
+    <img src="{{ url_for('static', filename='images/ranks/top10.png') }}" class="rank-image">
+
+    {% else %}
+
+    <img src="{{ url_for('static', filename='images/ranks/participant.png') }}" class="rank-image">
+
+    {% endif %}
+
+</div>
+        <div class="info">
+
+            <h2>{{ player.username }}</h2>
+
+            <p>⭐ Level {{ player.level }}</p>
+
+            <p>💎 {{ player.xp }} XP</p>
+
+            <p>🪙 {{ player.coins }} Coins</p>
+
+            <p>🔥 {{ player.streak }} Day Streak</p>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    <br>
+
+    <a href="/dashboard" class="btn">
+        ⬅ Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Code Quest{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    {% block styles %}{% endblock %}
+
+</head>
+
+<body>
+
+    {% if session.get("user_id") %}
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ⚔ Code Quest
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/dashboard">Dashboard</a>
+            <a href="/worlds">Worlds</a>
+            <a href="/leaderboard">Leaderboard</a>
+            <a href="/shop">Shop</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>

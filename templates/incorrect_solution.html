@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incorrect Solution</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/incorrect.css') }}">
+</head>
+<body>
+
+<div class="result-card">
+
+    <div class="icon">❌</div>
+
+    <h1>Mission Failed!</h1>
+
+    <p class="message">
+        Your solution didn't match the expected output.
+    </p>
+
+    <div class="box">
+        <h3>Expected Output</h3>
+        <div class="code">{{ expected }}</div>
+    </div>
+
+    <div class="box">
+        <h3>Your Output</h3>
+        <div class="code">{{ result }}</div>
+    </div>
+
+    <div class="buttons">
+
+        <a href="/challenge/{{ challenge_id }}" class="btn">
+            🔄 Try Again
+        </a>
+
+        <a href="/dashboard" class="btn">
+            🏠 Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

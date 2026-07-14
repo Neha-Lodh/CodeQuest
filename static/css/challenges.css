@@ -1,0 +1,135 @@
+/* ===========================
+   CHALLENGES PAGE
+=========================== */
+
+body{
+    background:#081120;
+    color:white;
+    font-family:Segoe UI, sans-serif;
+    margin:0;
+}
+
+/* Container */
+
+.container{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+}
+
+/* World Header */
+
+.world-header{
+    background:#1e293b;
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:35px;
+    text-align:center;
+    border:2px solid #2563eb;
+}
+
+.world-header h1{
+    margin-bottom:10px;
+    font-size:40px;
+}
+
+/* Progress Bar */
+
+.progress-bar{
+    width:100%;
+    height:18px;
+    background:#334155;
+    border-radius:20px;
+    overflow:hidden;
+    margin:20px 0;
+}
+
+.progress-fill{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
+    transition:0.5s;
+}
+
+/* Challenge Grid */
+
+.challenge-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+/* Challenge Card */
+
+.challenge-card{
+    background:#1e293b;
+    border-radius:20px;
+    padding:25px;
+    transition:.3s;
+    border:2px solid transparent;
+}
+
+.challenge-card:hover{
+    transform:translateY(-8px);
+    border-color:#3b82f6;
+    box-shadow:0 0 20px rgba(59,130,246,.35);
+}
+
+.challenge-card h2{
+    margin-bottom:15px;
+}
+
+.challenge-card p{
+    color:#cbd5e1;
+}
+
+/* XP Reward */
+
+.reward{
+    margin:20px 0;
+    color:#facc15;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* Button */
+
+.challenge-card button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.challenge-card button:hover{
+    background:#1d4ed8;
+}
+
+/* Completed */
+
+.completed{
+    display:block;
+    text-align:center;
+    padding:12px;
+    background:#16a34a;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .challenge-grid{
+        grid-template-columns:1fr;
+    }
+
+}

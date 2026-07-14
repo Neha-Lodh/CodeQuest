@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Result</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+{% if success %}
+
+<h1>✅ Success</h1>
+
+{% else %}
+
+<h1>❌ Failed</h1>
+
+{% endif %}
+{% if success and "Boss" in message %}
+
+<div class="boss-win">
+
+🏆
+
+WORLD BOSS DEFEATED!
+
+🎉
+
+</div>
+
+{% endif %}
+<p>{{ message }}</p>
+
+<h3>Output</h3>
+
+<pre>{{ output }}</pre>
+
+<br>
+
+<a class="btn" href="/dashboard">
+Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

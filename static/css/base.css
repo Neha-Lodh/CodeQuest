@@ -1,0 +1,144 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Segoe UI,sans-serif;
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:white;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:.3s;
+
+}
+/* ---------- Buttons ---------- */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#2563EB;
+
+    color:white;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ---------- Cards ---------- */
+
+.card{
+
+    background:#16213E;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
+/* ---------- Section Titles ---------- */
+
+.section-title{
+
+    font-size:34px;
+
+    margin-bottom:25px;
+
+    color:white;
+
+}
+
+/* ---------- Container ---------- */
+
+.container{
+
+    width:90%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:40px 0;
+
+}
+
+/* ---------- Glass Effect ---------- */
+
+.glass{
+
+    background:rgba(22,33,62,.85);
+
+    backdrop-filter:blur(12px);
+
+}
+
+/* ---------- Fade Animation ---------- */
+
+.fade{
+
+    animation:fade .6s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}

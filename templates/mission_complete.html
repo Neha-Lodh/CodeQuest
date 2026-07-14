@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Mission Complete</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/base.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/mission_complete.css') }}">
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>🎉 Mission Complete!</h1>
+
+    <h2>{{ message }}</h2>
+
+    <div class="reward">
+
+        ⭐ +{{ xp }} XP
+
+    </div>
+
+    <div class="reward">
+
+        🪙 +{{ coins }} Coins
+
+    </div>
+
+    <div class="buttons">
+
+        <a href="/worlds">
+            <button>🌍 Adventure Map</button>
+        </a>
+        {% if next_challenge %}
+        <a href="/challenge/{{ next_challenge.id }}">
+        <button>➡ Next Challenge</button>
+        </a>
+{% endif %}
+        <a href="/dashboard">
+            <button>🏠 Dashboard</button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

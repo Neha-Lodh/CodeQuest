@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Achievements</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/base.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏆 Achievements</h1>
+
+{% for achievement in achievements %}
+
+<div class="card">
+ <a href="/achievements">
+🏆 Achievements
+</a>
+<h2>
+
+{{ achievement.icon }}
+
+{{ achievement.title }}
+
+</h2>
+
+<p>
+
+{{ achievement.description }}
+
+</p>
+
+{% if achievement.unlocked %}
+
+<p style="color:lime;">
+
+✅ Unlocked
+
+</p>
+
+{% else %}
+
+<p style="color:gray;">
+
+🔒 Locked
+
+</p>
+
+{% endif %}
+
+</div>
+
+<br>
+
+{% endfor %}
+
+</div>
+
+</body>
+
+</html>

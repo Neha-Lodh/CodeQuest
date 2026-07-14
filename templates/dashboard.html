@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Player Card -->
+
+    <div class="player-card">
+
+        <div class="player-left">
+
+            <img
+            src="{{ url_for('static', filename='images/avatars/' + avatar) }}"
+            class="avatar">
+            
+            <div>
+
+                <h1>{{ username }}</h1>
+
+                <p>Level {{ level }}</p>
+
+                <p>🔥 {{ streak }} Day Streak</p>
+
+            </div>
+
+        </div>
+
+        <div class="player-right">
+
+            <div class="stat">
+
+                <h2>⭐ XP</h2>
+
+                <p>{{ xp }}</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h2>🪙 Coins</h2>
+
+                <p>{{ coins }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- XP -->
+
+    <div class="xp-card">
+
+        <h2>Experience</h2>
+
+        <div class="xp-bar">
+
+            <div
+            class="xp-fill"
+            style="width:{{ progress }}%">
+            </div>
+
+        </div>
+
+        <p>{{ progress }}% to next level</p>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="menu-grid">
+
+        <a href="/worlds" class="menu-card">
+            🌍
+            <span>Continue Adventure</span>
+        </a>
+
+        
+
+        <a href="/shop" class="menu-card">
+            🎒
+            <span>Avatar Shop</span>
+        </a>
+
+        <a href="/achievements" class="menu-card">
+            🏆
+            <span>Achievements</span>
+        </a>
+
+        <a href="/profile" class="menu-card">
+
+    <div class="menu-icon">
+        👤
+    </div>
+
+    <h2 style = "font-size:25px; font-weight: 100; ">Profile</h2>
+
+</a>
+
+        <a href="/leaderboard" class="menu-card">
+            🥇
+            <span>Leaderboard</span>
+        </a>
+
+    </div>
+
+    <!-- Badges -->
+
+    <div class="badge-card">
+
+        <h2>Recent Badges</h2>
+
+        {% if badges %}
+
+            <div class="badges">
+
+                {% for badge in badges %}
+
+                    <span class="badge">
+
+                        🏅 {{ badge.badge_name }}
+
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p>No badges earned yet.</p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}

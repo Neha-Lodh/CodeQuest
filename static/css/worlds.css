@@ -1,0 +1,296 @@
+/* ---------- Page ---------- */
+
+body{
+
+    margin:0;
+    padding:40px;
+
+    background:#081120;
+
+    font-family:"Segoe UI",sans-serif;
+
+    color:white;
+
+}
+
+.title{
+
+    text-align:center;
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:50px;
+
+    color:#ffffff;
+
+}
+
+/* ---------- Grid ---------- */
+
+.world-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+/* ---------- Card ---------- */
+
+.world-card{
+
+    background:#16213E;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:2px solid #243b63;
+
+    transition:.35s ease;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.world-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#4F8EF7;
+
+    box-shadow:
+        0 15px 40px rgba(79,142,247,.35);
+
+}
+
+/* ---------- Image ---------- */
+
+.world-card img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.world-card:hover img{
+
+    transform:scale(1.06);
+
+}
+
+/* ---------- Title ---------- */
+
+.world-card h2{
+
+    margin:22px 20px 10px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+/* ---------- Description ---------- */
+
+.world-card p{
+
+    color:#cbd5e1;
+
+    margin:6px 20px;
+
+    font-size:15px;
+
+}
+
+/* ---------- Progress ---------- */
+
+.progress-bar{
+
+    width:88%;
+
+    height:12px;
+
+    margin:20px auto 12px;
+
+    background:#263652;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #38bdf8,
+        #2563eb
+    );
+
+}
+
+/* ---------- Button ---------- */
+
+.world-card button{
+
+    width:88%;
+
+    margin:20px auto 28px;
+
+    display:block;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#3B82F6;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.world-card button:hover{
+
+    background:#2563EB;
+
+    transform:scale(1.03);
+
+}
+
+/* ---------- Locked ---------- */
+
+button:disabled{
+
+    background:#475569;
+
+    color:#d1d5db;
+
+    cursor:not-allowed;
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .title{
+
+        font-size:34px;
+
+    }
+
+}
+.page{
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:#94A3B8;
+
+    margin-top:-20px;
+
+    margin-bottom:45px;
+
+    font-size:18px;
+
+}
+
+.image-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.locked-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(8,17,32,.75);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    backdrop-filter:blur(3px);
+
+}
+
+.card-body{
+
+    padding:20px;
+
+}
+
+.boss{
+
+    color:#FFD54A;
+
+    font-weight:600;
+
+}
+
+.difficulty{
+
+    color:#60A5FA;
+
+    font-weight:600;
+
+}
+
+.progress-text{
+
+    text-align:center;
+
+    margin-top:12px;
+
+}

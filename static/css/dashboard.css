@@ -1,0 +1,305 @@
+/* ===========================
+   DASHBOARD
+=========================== */
+
+body{
+    background:#0f172a;
+    font-family:Segoe UI,sans-serif;
+    color:white;
+}
+
+.dashboard{
+
+    max-width:1300px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+}
+
+/* ===========================
+   PLAYER CARD
+=========================== */
+
+.player-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(30,41,59,.9);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    border:2px solid #2563eb;
+
+    box-shadow:0 0 25px rgba(37,99,235,.25);
+
+}
+
+.player-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.avatar{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #3b82f6;
+
+}
+
+.player-left h1{
+
+    font-size:35px;
+
+}
+
+.player-left p{
+
+    color:#cbd5e1;
+
+    margin-top:8px;
+
+}
+
+/* ===========================
+   STATS
+=========================== */
+
+.player-right{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.stat{
+
+    width:150px;
+
+    background:#1e293b;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.stat h2{
+
+    color:#facc15;
+
+    margin-bottom:10px;
+
+}
+
+.stat p{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+/* ===========================
+   XP CARD
+=========================== */
+
+.xp-card{
+
+    margin-top:35px;
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:20px;
+
+}
+
+.xp-card h2{
+
+    margin-bottom:15px;
+
+}
+
+.xp-bar{
+
+    height:25px;
+
+    background:#334155;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.xp-fill{
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
+
+    transition:.6s;
+
+}
+
+.xp-card p{
+
+    margin-top:10px;
+
+}
+
+/* ===========================
+   MENU GRID
+=========================== */
+
+.menu-grid{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.menu-card{
+
+    background:#1e293b;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    border:2px solid transparent;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#3b82f6;
+
+    box-shadow:0 0 20px rgba(59,130,246,.4);
+
+}
+
+.menu-card{
+
+    font-size:45px;
+
+}
+
+.menu-card span{
+
+    display:block;
+
+    margin-top:18px;
+
+    font-size:20px;
+
+}
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge-card{
+
+    margin-top:40px;
+
+    background:#1e293b;
+
+    padding:25px;
+
+    border-radius:20px;
+
+}
+
+.badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.badge{
+
+    background:#2563eb;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.player-card{
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+.player-right{
+
+flex-direction:column;
+
+}
+
+.menu-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
