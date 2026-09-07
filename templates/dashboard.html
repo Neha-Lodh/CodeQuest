@@ -16,134 +16,313 @@ href="{{ url_for('static', filename='css/dashboard.css') }}">
 
 <div class="dashboard">
 
-    <!-- Player Card -->
+    <!-- Hero Banner -->
 
-    <div class="player-card">
+    <section class="hero-banner">
 
-        <div class="player-left">
+        <div class="hero-left">
 
-            <img
-            src="{{ url_for('static', filename='images/avatars/' + avatar) }}"
-            class="avatar">
-            
+            <h1>
+                Hii ! Welcome Back,
+                {{ username }}
+            </h1>
+
+            <p>
+                Ready for another coding adventure?
+            </p>
+
+            <a href="/worlds" class="hero-btn">
+                Continue Adventure →
+            </a>
+
+        </div>
+
+        <div class="hero-right">
+
+            <span>LEVEL</span>
+
+            <h2>{{ level }}</h2>
+
+        </div>
+
+    </section>
+
+</div>
+<!-- ======================
+     PROFILE + XP SECTION
+====================== -->
+
+<div class="top-grid">
+
+    <!-- Profile Card -->
+    <div class="profile-card">
+
+        <img src="{{ url_for('static', filename='images/avatars/' + avatar) }}"
+             class="profile-avatar">
+
+        <h2>{{ username }}</h2>
+
+        <p class="rank">
+
+            {% if level >= 10 %}
+                👑 Python Master
+            {% elif level >= 7 %}
+                ⚔ Python Warrior
+            {% elif level >= 5 %}
+                🏅 Code Hero
+            {% elif level >= 3 %}
+                🌟 Explorer
+            {% else %}
+                🌱 Beginner
+            {% endif %}
+
+        </p>
+
+        <div class="mini-stats">
+
             <div>
-
-                <h1>{{ username }}</h1>
-
-                <p>Level {{ level }}</p>
-
-                <p>🔥 {{ streak }} Day Streak</p>
-
+                <h3>{{ level }}</h3>
+                <span>Level</span>
             </div>
 
-        </div>
-
-        <div class="player-right">
-
-            <div class="stat">
-
-                <h2>⭐ XP</h2>
-
-                <p>{{ xp }}</p>
-
+            <div>
+                <h3>{{ xp }}</h3>
+                <span>XP</span>
             </div>
 
-            <div class="stat">
+            <div>
+                <h3>{{ coins }}</h3>
+                <span>Coins</span>
+            </div>
 
-                <h2>🪙 Coins</h2>
-
-                <p>{{ coins }}</p>
-
+            <div>
+                <h3>{{ streak }}</h3>
+                <span>Streak</span>
             </div>
 
         </div>
 
     </div>
 
-    <!-- XP -->
 
-    <div class="xp-card">
+    <!-- Right Side -->
+    <div class="right-column">
 
-        <h2>Experience</h2>
+        <!-- XP Progress -->
+        <div class="xp-card">
 
-        <div class="xp-bar">
+            <h2>⭐ Level Progress</h2>
 
-            <div
-            class="xp-fill"
-            style="width:{{ progress }}%">
+            <div class="xp-bar">
+
+                <div class="xp-fill"
+                     style="width:{{ progress }}%">
+                </div>
+
+            </div>
+
+            <p>{{ progress }}% to next level</p>
+
+        </div>
+
+
+        <!-- Continue Adventure -->
+
+        <div class="continue-card">
+
+            <h2>🚀 Continue Adventure</h2>
+
+            {% if next_challenge %}
+
+                <h3>{{ next_challenge.title }}</h3>
+
+                <p>{{ next_challenge.world }}</p>
+
+                <a href="/challenge/{{ next_challenge.id }}"
+                   class="hero-btn">
+
+                    Continue →
+
+                </a>
+
+            {% else %}
+
+                <h3>🏆 All Challenges Completed!</h3>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ======================
+     QUICK ACTIONS
+====================== -->
+
+<div class="quick-actions">
+
+    <a href="/worlds" class="action-card">
+        <div class="icon">🌍</div>
+        <h3>Worlds</h3>
+        <p>Explore new challenges</p>
+    </a>
+
+    <a href="/shop" class="action-card">
+        <div class="icon">🛒</div>
+        <h3>Shop</h3>
+        <p>Buy avatars & items</p>
+    </a>
+
+    <a href="/achievements" class="action-card">
+        <div class="icon">🏆</div>
+        <h3>Achievements</h3>
+        <p>View your rewards</p>
+    </a>
+
+    <a href="/leaderboard" class="action-card">
+        <div class="icon">🥇</div>
+        <h3>Leaderboard</h3>
+        <p>Compete with players</p>
+    </a>
+
+    <a href="/profile" class="action-card">
+        <div class="icon">👤</div>
+        <h3>Profile</h3>
+        <p>Customize your account</p>
+    </a>
+
+</div>
+<!-- ======================
+     GAME STATISTICS
+====================== -->
+
+<div class="stats-section">
+
+    <h2 class="section-title">
+        📊 Game Statistics
+    </h2>
+
+    <div class="stats-cards">
+
+        <div class="game-stat">
+
+            <div class="stat-icon">⭐</div>
+
+            <h1>{{ xp }}</h1>
+
+            <p>Total XP</p>
+
+        </div>
+
+        <div class="game-stat">
+
+            <div class="stat-icon">🪙</div>
+
+            <h1>{{ coins }}</h1>
+
+            <p>Coins</p>
+
+        </div>
+
+        <div class="game-stat">
+
+            <div class="stat-icon">🔥</div>
+
+            <h1>{{ streak }}</h1>
+
+            <p>Day Streak</p>
+
+        </div>
+
+        <div class="game-stat">
+
+            <div class="stat-icon">🏆</div>
+
+            <h1>{{ badges|length }}</h1>
+
+            <p>Badges</p>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ======================
+     RECENT ACTIVITY
+====================== -->
+
+<div class="activity-section">
+
+    <h2 class="section-title">
+        ⚡ Recent Activity
+    </h2>
+
+    <div class="activity-list">
+
+        <div class="activity-item">
+
+            <div class="activity-icon green">
+                ✅
+            </div>
+
+            <div class="activity-info">
+
+                <h3>Challenge Completed</h3>
+
+                <p>Successfully solved your latest coding challenge.</p>
+
             </div>
 
         </div>
 
-        <p>{{ progress }}% to next level</p>
+        <div class="activity-item">
 
-    </div>
+            <div class="activity-icon yellow">
+                🏆
+            </div>
 
-    <!-- Quick Actions -->
+            <div class="activity-info">
 
-    <div class="menu-grid">
+                <h3>Badge Earned</h3>
 
-        <a href="/worlds" class="menu-card">
-            🌍
-            <span>Continue Adventure</span>
-        </a>
-
-        
-
-        <a href="/shop" class="menu-card">
-            🎒
-            <span>Avatar Shop</span>
-        </a>
-
-        <a href="/achievements" class="menu-card">
-            🏆
-            <span>Achievements</span>
-        </a>
-
-        <a href="/profile" class="menu-card">
-
-    <div class="menu-icon">
-        👤
-    </div>
-
-    <h2 style = "font-size:25px; font-weight: 100; ">Profile</h2>
-
-</a>
-
-        <a href="/leaderboard" class="menu-card">
-            🥇
-            <span>Leaderboard</span>
-        </a>
-
-    </div>
-
-    <!-- Badges -->
-
-    <div class="badge-card">
-
-        <h2>Recent Badges</h2>
-
-        {% if badges %}
-
-            <div class="badges">
-
-                {% for badge in badges %}
-
-                    <span class="badge">
-
-                        🏅 {{ badge.badge_name }}
-
-                    </span>
-
-                {% endfor %}
+                <p>Unlocked a new achievement.</p>
 
             </div>
 
-        {% else %}
+        </div>
 
-            <p>No badges earned yet.</p>
+        <div class="activity-item">
 
-        {% endif %}
+            <div class="activity-icon blue">
+                ⭐
+            </div>
+
+            <div class="activity-info">
+
+                <h3>Level {{ level }}</h3>
+
+                <p>Keep earning XP to level up.</p>
+
+            </div>
+
+        </div>
+
+        <div class="activity-item">
+
+            <div class="activity-icon purple">
+                🌍
+            </div>
+
+            <div class="activity-info">
+
+                <h3>World Progress</h3>
+
+                <p>Continue your adventure to unlock more worlds.</p>
+
+            </div>
+
+        </div>
 
     </div>
 

@@ -89,13 +89,14 @@ def world(world_id):
     conn.close()
 
     return render_template(
-        "challenge_list.html",
-        world_name=world_name,
-        challenges=challenges,
-        total=total,
-        completed=completed,
-        progress=progress
-    )
+    "challenge_list.html",
+    world_id=world_id,
+    world_name=world_name,
+    challenges=challenges,
+    total=total,
+    completed=completed,
+    progress=progress
+)
 
 @challenges_bp.route("/challenge/<int:challenge_id>")
 def challenge(challenge_id):

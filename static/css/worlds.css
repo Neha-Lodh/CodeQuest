@@ -10,7 +10,15 @@ body{
     font-family:"Segoe UI",sans-serif;
 
     color:white;
+    background-image: url("/static/images/backgrounds/worlds.png");
 
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
 }
 
 .title{

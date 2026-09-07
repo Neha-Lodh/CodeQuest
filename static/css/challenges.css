@@ -133,3 +133,107 @@ body{
     }
 
 }
+body{
+    background:
+        linear-gradient(rgba(7,15,32,.82), rgba(7,15,32,.90)),
+        url("/static/images/backgrounds/challenge-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height:100vh;
+}
+/* ====================================
+   Glass Effect for Challenge Page
+==================================== */
+
+.world-header,
+.challenge-card{
+
+    background: rgba(30,41,59,.35) !important;
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+
+}
+
+/* Progress Bar Background */
+
+.progress-bar{
+
+    background: rgba(51,65,85,.40);
+
+}
+
+/* Completed Badge */
+
+.completed{
+
+    background: rgba(34,197,94,.75);
+
+}
+
+/* Challenge Button */
+
+.challenge-card button{
+
+    background: rgba(37,99,235,.80);
+
+    backdrop-filter: blur(8px);
+
+}
+
+.challenge-card button:hover{
+
+    background: rgba(29,78,216,.95);
+
+}
+/* ---------- World Backgrounds ---------- */
+
+body{
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+}
+
+body.world-1{
+
+    background-image:url("/static/images/backgrounds/world1-bg.png");
+
+}
+
+body.world-2{
+
+    background-image:url("/static/images/backgrounds/world2-bg.png");
+
+}
+
+body.world-3{
+
+    background-image:url("/static/images/backgrounds/world3-bg.png");
+
+}
+
+body.world-4{
+
+    background-image:url("/static/images/backgrounds/world4-bg.png");
+
+}
+
+body.world-5{
+
+    background-image:url("/static/images/backgrounds/world5-bg.png");
+
+}
+
+

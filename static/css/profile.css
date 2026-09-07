@@ -79,3 +79,16 @@ body{
     flex-wrap:wrap;
 
 }
+body{
+    background:
+        linear-gradient(rgba(7,15,32,.82), rgba(7,15,32,.90)),
+        url("/static/images/backgrounds/profile-bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height:100vh;
+}
+

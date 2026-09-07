@@ -173,3 +173,25 @@ color:white;
 cursor:default;
 
 }
+/* ===================================
+   Avatar Shop Background
+=================================== */
+
+body{
+
+    background-image:
+    linear-gradient(
+        rgba(10,18,35,.55),
+        rgba(10,18,35,.75)
+    ),
+    url("/static/images/backgrounds/shop-bg.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+}

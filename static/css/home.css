@@ -1,6 +1,6 @@
 body{
 
-    background:url("../images/worlds/kingdom.png");
+    background:url("../images/backgrounds/world5-bg.png");
 
     background-size:cover;
 
@@ -78,7 +78,7 @@ nav a{
 
     margin-top:40px;
 
-    background:#3b82f6;
+    background:#3f88d6;
 
     color:white;
 

@@ -14,47 +14,58 @@ def dashboard():
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
 
-    cursor.execute(
-        """
+    # ---------------- USER ----------------
+
+    cursor.execute("""
         SELECT
             users.*,
             avatars.image
         FROM users
-
         LEFT JOIN avatars
-
-        ON users.equipped_avatar = avatars.id
-
+            ON users.equipped_avatar = avatars.id
         WHERE users.id=%s
-        """,
-        (session["user_id"],)
-    )
+    """, (session["user_id"],))
 
     user = cursor.fetchone()
-    avatar = user.get("image") or "knight.png"
-
-    print(user)
-    print("Avatar =", avatar)
-    # print(user)
 
     if not user:
         cursor.close()
         conn.close()
         return redirect("/login")
 
-    xp = user.get("xp", 0)
+    avatar = user["image"] if user["image"] else "knight.png"
 
+    xp = user["xp"]
     progress = xp % 100
 
-    avatar = user.get("image") or "knight.png"
+    # ---------------- NEXT CHALLENGE ----------------
 
-    cursor.execute(
-        """
+    cursor.execute("""
+        SELECT
+            c.id,
+            c.title,
+            c.world
+        FROM challenges c
+
+        LEFT JOIN completed_challenges cc
+            ON c.id = cc.challenge_id
+            AND cc.user_id=%s
+
+        WHERE cc.challenge_id IS NULL
+
+        ORDER BY c.id
+        LIMIT 1
+    """, (session["user_id"],))
+
+    next_challenge = cursor.fetchone()
+
+    # ---------------- BADGES ----------------
+
+    cursor.execute("""
         SELECT badge_name
         FROM badges
         LIMIT 3
-        """
-    )
+    """)
 
     badges = cursor.fetchall()
 
@@ -70,5 +81,6 @@ def dashboard():
         streak=user["streak"],
         progress=progress,
         avatar=avatar,
-        badges=badges
+        badges=badges,
+        next_challenge=next_challenge
     )

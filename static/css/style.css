@@ -1711,3 +1711,131 @@ border-radius:15px;
 .danger{
     background:#dc3545;
 }
+.dashboard-grid{
+
+display:grid;
+grid-template-columns:320px 1fr;
+gap:30px;
+margin-top:30px;
+
+}
+
+.profile-card{
+
+background:#1e293b;
+padding:35px;
+border-radius:25px;
+text-align:center;
+border:2px solid #334155;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.profile-avatar{
+
+width:140px;
+height:140px;
+border-radius:50%;
+border:5px solid #facc15;
+object-fit:cover;
+margin-bottom:20px;
+
+}
+
+.profile-card h2{
+
+color:white;
+margin:10px 0;
+
+}
+
+.player-title{
+
+color:#94a3b8;
+margin-bottom:30px;
+
+}
+
+.profile-stats{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+
+}
+
+.stat{
+
+background:#334155;
+padding:15px;
+border-radius:15px;
+transition:.3s;
+
+}
+
+.stat:hover{
+
+transform:translateY(-5px);
+background:#475569;
+
+}
+
+.stat h3{
+
+margin:0;
+font-size:28px;
+
+}
+
+.stat span{
+
+display:block;
+margin-top:8px;
+color:white;
+
+}
+
+.right-panel{
+
+display:flex;
+flex-direction:column;
+gap:25px;
+
+}
+
+.continue-card{
+
+background:#1e293b;
+padding:35px;
+border-radius:25px;
+border:2px solid #334155;
+
+}
+
+.continue-card h2{
+
+margin-bottom:15px;
+color:#38bdf8;
+
+}
+
+.continue-btn{
+
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+background:#facc15;
+color:#111827;
+font-weight:bold;
+border-radius:12px;
+text-decoration:none;
+transition:.3s;
+
+}
+
+.continue-btn:hover{
+
+transform:translateY(-3px);
+background:#fde047;
+
+}
